@@ -2,7 +2,8 @@ class Error
 
   MES = { empty_req: 'Empty request',
           empty_query: 'Empty query string',
-          unknown: 'Unknown time format:' }.freeze
+          unknown: 'Unknown time format:',
+          path_error: 'Unknown path' }.freeze
 
   def initialize(req)
     @req_format = req[:format]

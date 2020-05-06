@@ -4,9 +4,9 @@ class Router
   end
 
   def call(env)
-    status, headers, body = @app.call(env)
-    return [404, headers, ['Unknown path']] if env['PATH_INFO'] != '/time'
+    return [404, App.headers, [Error::MES[:path_error]]] if env['PATH_INFO'] != '/time'
 
+    status, headers, body = @app.call(env)
     [status, headers, body]
   end
 end
